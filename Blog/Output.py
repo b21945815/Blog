@@ -6,7 +6,7 @@ from sklearn.linear_model import LinearRegression
 
 @st.cache
 def trained_model():
-    data = pd.read_csv("1.csv")
+    data = pd.read_csv("Blog\Blog\1.csv")
     data = data[["potassium", "chloride", "pco2", "po2", "hemoglobin"]]
     x = data.dropna(subset=['hemoglobin']).drop("hemoglobin", axis=1)
     y = data.dropna(subset=['hemoglobin'])['hemoglobin']
