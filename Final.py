@@ -17,8 +17,6 @@ def trained_model():
     return new_model
 
 
-#  Changing the background color
-
 modelTraining = st.container()
 with modelTraining:
     st.title("Input to estimate the car's price")
@@ -33,10 +31,10 @@ with modelTraining:
     mileage = left_column2.number_input("Give the mileage", step=500.0, format="%.1f")
     mpg = right_column2.number_input("Give the Miles per Gallon", step=1.0, format="%.1f")
 
-    predict_button = st.button("Show the prediction")
+    predict_button = st.button("Show the prediction")  # 1
     prediction = st.container()
-    if predict_button:
-        prediction.write(model.predict([[year, mileage, tax, mpg]]))
+    if predict_button:  # 2
+        prediction.write(model.predict([[year, mileage, tax, mpg]]))  # 3
     st.write("If you have the actual result, can you write it?")
     number = st.number_input("Actual result", step=10.0, format="%.2f")
     real_resultButton = st.container()
@@ -44,7 +42,3 @@ with modelTraining:
         st.write("The actual result is ", number)
         # Here you can save the actual result with the model's prediction for later comparison.
 
-st.markdown(
-      """<style>.main {background-color: #FDE2E2;}</style>""",
-      unsafe_allow_html=True
-)
